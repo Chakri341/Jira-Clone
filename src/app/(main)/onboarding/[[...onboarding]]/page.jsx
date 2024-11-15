@@ -1,9 +1,39 @@
+// "use client";
+// import { OrganizationList, useOrganization } from "@clerk/nextjs";
+// import { useRouter } from "next/navigation";
+// import React, { useEffect } from "react";
+
+// const page = () => {
+//   const { organization } = useOrganization();
+//   const router = useRouter();
+
+//   useEffect(() => {
+//     if (organization) {
+//       router.push(`/organisation/${organization.slug}`);
+//     }
+//   }, [organization, router]);
+
+//   return (
+//     <div className="flex justify-center items-center p-14 ">
+//       <OrganizationList
+//         hidePersonal
+//         afterCreateOrganizationUrl="/organisation/:slug"
+//         afterSelectOrganizationUrl="/organisation/:slug"
+//       />
+//     </div>
+//   );
+// };
+
+// export default page;
+
+
 "use client";
+
 import { OrganizationList, useOrganization } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-const page = () => {
+const Onboarding = () => {
   const { organization } = useOrganization();
   const router = useRouter();
 
@@ -11,7 +41,8 @@ const page = () => {
     if (organization) {
       router.push(`/organisation/${organization.slug}`);
     }
-  }, [organization, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [organization]);
 
   return (
     <div className="flex justify-center items-center p-14 ">
@@ -24,4 +55,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Onboarding;
